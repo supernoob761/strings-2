@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 struct doodle
+
 {
     char words[100];
     int count;
