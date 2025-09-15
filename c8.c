@@ -26,7 +26,7 @@ int main(){
             strcpy(words[u].words,split);
             words[u].count=1;
             u++;
-        }
+             }
         split=strtok(NULL," ");
     }
 

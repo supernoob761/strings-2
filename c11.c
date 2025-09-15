@@ -10,10 +10,6 @@ struct doodle
 
 int main(){
     struct doodle words[50];
-
-
-
-    
 char subject[]={"the sleeps black cat cat sleeps the dog plays sleeps"};
 char *split=strtok(subject," ");
 int u=0;

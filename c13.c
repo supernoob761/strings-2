@@ -38,11 +38,6 @@ int main() {
         pos++;
         split = strtok(NULL, " ");
     }
-
-
-
-
-    
     int a = 0, b = 0, c = 0;
     for (int i = 1; i < u; i++) {
         if (words[i].length > words[a].length) a = i;

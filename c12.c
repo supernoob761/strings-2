@@ -43,8 +43,8 @@ int main() {
     total+=words[i].length;
     }
 
-    float avr=(float) total/(u+1);
+    float avr=(float) total/(u);
 
-    printf("total: %d,unique: %d\naverage: %.2f",total,u+1,avr);
+    printf("total: %d,unique: %d\naverage: %.2f",total,u,avr);
     return 0;
 }
