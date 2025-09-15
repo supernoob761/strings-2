@@ -38,17 +38,13 @@ int main() {
         pos++;
         split = strtok(NULL, " ");
     }
-
-    for (int i = 0; i < u; i++) {
-        printf("%s -> length: %d, occurrences: %d, positions: [", 
-               words[i].words, words[i].length, words[i].count);
-
-        for (int j = 0; j < words[i].count; j++) {
-            printf("%d", words[i].positions[j]);
-            if (j < words[i].count - 1) printf(", ");
-        }
-        printf("]\n");
+    int total=0;
+    for(int i=0;i<u;i++){
+    total+=words[i].length;
     }
 
+    float avr=(float) total/(u+1);
+
+    printf("total: %d,unique: %d\naverage: %.2f",total,u+1,avr);
     return 0;
 }

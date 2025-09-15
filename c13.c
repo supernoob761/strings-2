@@ -39,16 +39,19 @@ int main() {
         split = strtok(NULL, " ");
     }
 
-    for (int i = 0; i < u; i++) {
-        printf("%s -> length: %d, occurrences: %d, positions: [", 
-               words[i].words, words[i].length, words[i].count);
 
-        for (int j = 0; j < words[i].count; j++) {
-            printf("%d", words[i].positions[j]);
-            if (j < words[i].count - 1) printf(", ");
-        }
-        printf("]\n");
+
+
+    
+    int a = 0, b = 0, c = 0;
+    for (int i = 1; i < u; i++) {
+        if (words[i].length > words[a].length) a = i;
+        if (words[i].length < words[b].length) b = i;
+        if (words[i].count > words[c].count) c = i;
     }
+    printf("Longest: %s (%d)\n", words[a].words, words[a].length);
+    printf("Shortest: %s (%d)\n", words[b].words, words[b].length);
+    printf("Most Frequent: %s (%d)\n", words[c].words, words[c].count);
 
     return 0;
 }

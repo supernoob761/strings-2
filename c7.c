@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <unistd.h>
 
 struct doodle {
     char words[100];
@@ -10,7 +11,7 @@ struct doodle {
 
 int main() {
     struct doodle words[50];
-    char subject[] = {"the black cat sleeps the dog plays"};
+    char subject[] = {"the black cat sleeps the dog plays one of them got hit by a car"};
     char *split = strtok(subject, " ");
     int u = 0;
     int pos = 0;
@@ -39,15 +40,29 @@ int main() {
         split = strtok(NULL, " ");
     }
 
-    for (int i = 0; i < u; i++) {
-        printf("%s -> length: %d, occurrences: %d, positions: [", 
-               words[i].words, words[i].length, words[i].count);
+    char query[100];
+    printf("search: ");
+    scanf("%s", query);
+    printf("loading...\n");
+    sleep(10);
 
-        for (int j = 0; j < words[i].count; j++) {
-            printf("%d", words[i].positions[j]);
-            if (j < words[i].count - 1) printf(", ");
+
+    int found = 0;
+    for (int i = 0; i < u; i++) {
+        if (strncmp(words[i].words, query, strlen(query)) == 0) { 
+            printf("%s -> length: %d, occurrences: %d, positions: [", 
+                   words[i].words, words[i].length, words[i].count);
+            for (int j = 0; j < words[i].count; j++) {
+                printf("%d", words[i].positions[j]);
+                if (j < words[i].count - 1) printf(", ");
+            }
+            printf("]\n");
+            found = 1;
         }
-        printf("]\n");
+    }
+
+    if (!found) {
+        printf("No word found starting with '%s'.\n", query);
     }
 
     return 0;
